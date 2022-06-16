@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+{% block titulo %} Lista de Buses {%endblock%}
+{% block contenido %} 
+
+<section>
+    <div class="bg-light w-75 m-auto py-3 pr-0 pl-3 rounded h-75">
+        <div class="col overflow-auto h-100">
+            <h2 class="center-align sticky-top bg-light">Buses</h2>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Origen</th>
+                        <th>Destino</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for ruta in rutas %}
+                        <tr class="table-light">
+                            <td class="" scope="row"> {{ ruta[0] }} </td>
+                            <td>{{ ruta[1] }} </td>
+                            <td>{{ ruta[2] }} </td>
+                        </tr>
+                        
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+{% block titulo %} Lista de Tiques {%endblock%}
+{% block contenido %} 
+<section>
+    <div class="bg-light w-75 m-auto py-3 pr-0 pl-3 rounded h-75">
+        <div class="col overflow-auto h-100">
+            <h2 class="center-align sticky-top bg-light">Tiquetes</h2>
+            <table class="table">
+                <a class="custom-btn custom-border-btn btn custom-link mt-3 me-3" href="/buytiquete">Crear Tiquete</a>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Cantidad</th>
+                        <th>Fecha del Viaje</th>
+                        <th>Hora de salida</th>
+                        <th>Bus</th>
+                        <th>Pasajero</th>
+                        <th>Ruta</th>
+                        <th>Acción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for tiquete in tiquetes %}
+                    <tr class="table-light">
+                        <td class="" scope="row"> {{ tiquete[0]  }} </td>
+                        <td>{{ tiquete[8] }} </td>
+                        <td>{{ tiquete[9] }} </td>
+                        <td>{{ tiquete[10] }} </td>
+                        <td>{{ tiquete[3] }} - {{ tiquete[4] }} </td>
+                        <td>{{ tiquete[5] }} {{ tiquete[6] }}</td>
+                        <td>{{ tiquete[1] }} -> {{ tiquete[2] }} </td>    
+                        <td>
+                            <a class="custom-btn btn custom-link mt-3" href="/editTiquete/{{ tiquete[0] }}"><i
+                                    class="bi bi-pencil fa-5x"></i></a>
+                            <a type="button" href="/borrarTiquete/{{tiquete[0]}}" class="custom-btn custom-border-btn btn custom-link mt-3 me-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                <i class="bi bi-trash"></i>
+                            </a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+{%endblock%}

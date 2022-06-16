@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+{% block titulo %} Lista de Pasajeros {%endblock%}
+{% block contenido %} 
+
+<section>
+    <div class="bg-light w-75 m-auto py-3 pr-0 pl-3 rounded h-75">
+        <div class="col overflow-auto h-100">
+            <h2 class="center-align sticky-top bg-light">Vendedores</h2>
+            <table class="table">
+                <a class="custom-btn custom-border-btn btn custom-link mt-3 me-3" href="/crearpasajero">Crear Pasajero</a>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Cedula</th>
+                        <th>Correo</th>
+                        <th>Telefono</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for usuario in pasajeros %}
+                        <tr class="table-light">
+                            <td class="" scope="row"> {{ usuario[0] }} </td>
+                            <td>{{ usuario[1] }} </td>
+                            <td>{{ usuario[2] }} </td>
+                            <td>{{ usuario[3] }} </td>
+                            <td>{{ usuario[4] }} </td>
+                            <td>{{ usuario[5] }} </td>
+                            <td>
+                                <!--<a class="custom-btn custom-border-btn btn custom-link mt-3 me-3" href="verUsuario/{{ usuario[0] }}">Ver</a>-->
+                                <a class="custom-btn btn custom-link mt-3" href="editpasajero/{{ usuario[0] }}"><i class="bi bi-pencil fa-5x"></i></a>
+                                <a class="custom-btn custom-border-btn btn custom-link mt-3 me-3" href="borrarPasajero/{{ usuario[0] }}"><i class="bi bi-trash"></i></a>
+                            </td>
+                        </tr>
+                        
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
